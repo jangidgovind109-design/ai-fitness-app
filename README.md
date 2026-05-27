@@ -1,280 +1,306 @@
-# 🏋️ AI-Powered Fitness App
+# AI-Powered Fitness Tracking App Inspired by Google Fit
 
-A full-stack, production-ready fitness tracking application with AI-powered coaching, health integration, and real-time analytics. Built with React Native (Expo), Firebase, and OpenAI API.
+A modern, cross-platform fitness tracking application built with React Native and Express.js. Features AI-powered workout recommendations, real-time activity tracking, health integrations, and a gamified user experience similar to Google Fit.
 
-## 🌟 Features
+## 🎯 Features
 
-### Core Features
-- **User Authentication**: Google Sign-In & Email/Password login
-- **Health Tracking**: Steps, calories, distance, workouts, sleep, water intake
-- **AI Coach**: Personalized fitness recommendations and motivation
-- **Analytics Dashboard**: Real-time fitness metrics with animated charts
-- **Goal Management**: Smart goal suggestions and weekly reports
-- **BMI Calculator**: Health metrics tracking
-- **Dark/Light Mode**: Beautiful theme support
-- **Health Integration**: Google Fit & Health Connect API sync
+### Core Tracking
+- ✅ Step counter with daily goals
+- ✅ Calorie tracking and prediction
+- ✅ Distance and pace analytics
+- ✅ Active minutes monitoring
+- ✅ Heart points/activity score
+- ✅ Water intake tracker
+- ✅ Sleep tracking overview
+- ✅ Real-time GPS route mapping
 
-### Advanced Features
-- AI-powered personalized workout plans
-- Diet recommendations based on fitness goals
-- Weekly fitness reports with insights
-- Daily motivational messages
-- Real-time progress tracking
-- Cloud synchronization
-- Offline support with local caching
+### Health Integrations
+- 📱 Apple HealthKit support
+- 🟢 Google Fit API integration
+- ⌚ Smartwatch synchronization
+- 💓 Heart rate monitoring
+- 🔄 Fitbit API integration
 
-## 🛠 Tech Stack
+### AI Features
+- 🤖 Personalized workout recommendations
+- 📊 AI-powered fitness plans
+- 🎯 Smart goal suggestions
+- 🔔 Intelligent reminders
+- 📈 Weekly insights and analytics
 
-### Frontend
-- **React Native** (Expo) - Cross-platform mobile development
-- **Redux** - State management
-- **React Navigation** - Navigation library
-- **Reanimated 2** - Smooth animations
-- **Victory Native** - Native charts and graphs
+### Social & Gamification
+- 👥 Friend connections and activity sharing
+- 🏆 Challenges and leaderboards
+- 🎖️ Achievement badges
+- ⭐ XP system and daily streaks
+- 📢 Community feed
 
-### Backend & Database
-- **Firebase** - Backend services
-- **Firestore** - Real-time database
-- **Firebase Authentication** - User auth
-- **Firebase Storage** - File storage
-- **Cloud Functions** - Serverless backend
+### Authentication
+- 📧 Email/password login
+- 🔵 Google Sign-In
+- 🍎 Apple Sign-In
+- 👤 Guest mode
+- 🔐 JWT-based security
 
-### AI & APIs
-- **OpenAI API** - GPT-4 for fitness coaching
-- **Google Fit API** - Health data integration
-- **Health Connect API** - Android health data
-
-## 📱 Quick Start
-
-### Prerequisites
-- Node.js 16+
-- Expo CLI: `npm install -g expo-cli`
-- Firebase CLI: `npm install -g firebase-tools`
-
-### Installation
-
-```bash
-# Clone repository
-git clone https://github.com/jangidgovind109-design/ai-fitness-app.git
-cd ai-fitness-app
-
-# Install root dependencies
-npm install
-
-# Setup frontend
-cd frontend
-npm install
-cp .env.example .env.local
-# Add your API keys
-
-# Setup backend
-cd ../backend/functions
-npm install
-cp .env.example .env
-# Add your Firebase and OpenAI credentials
-```
-
-### Start Development
-
-**Terminal 1 - Frontend:**
-```bash
-cd frontend
-npm start
-# Press 'i' for iOS or 'a' for Android
-```
-
-**Terminal 2 - Backend (Firebase Emulator):**
-```bash
-cd backend
-firebase emulators:start
-```
-
-## 🔑 Environment Variables
-
-### Frontend (.env.local)
-```env
-EXPO_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
-EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-EXPO_PUBLIC_FIREBASE_DATABASE_URL=your_database_url
-EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_bucket
-EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
-EXPO_PUBLIC_OPENAI_API_KEY=sk_your_openai_key
-EXPO_PUBLIC_GOOGLE_FIT_CLIENT_ID=your_google_fit_client_id
-```
-
-### Backend (.env)
-```env
-FIREBASE_PROJECT_ID=your_project_id
-FIREBASE_PRIVATE_KEY=your_private_key
-FIREBASE_CLIENT_EMAIL=your_client_email
-OPENAI_API_KEY=sk_your_openai_key
-NODE_ENV=development
-```
-
-## 📁 Project Structure
+## 🏗️ Project Structure
 
 ```
 ai-fitness-app/
-├── frontend/                 # React Native Expo App
+├── frontend/                    # React Native mobile app
 │   ├── src/
-│   │   ├── components/      # Reusable components
-│   │   ├── screens/         # Full-page screens
-│   │   ├── services/        # API services
-│   │   ├── store/           # Redux store
-│   │   ├── hooks/           # Custom hooks
-│   │   ├── utils/           # Utilities
-│   │   ├── types/           # TypeScript types
-│   │   └── App.tsx
-│   ├── app.json             # Expo config
+│   │   ├── components/
+│   │   │   ├── Dashboard/
+│   │   │   ├── ActivityTracker/
+│   │   │   ├── Analytics/
+│   │   │   ├── Social/
+│   │   │   └── Auth/
+│   │   ├── screens/
+│   │   ├── navigation/
+│   │   ├── redux/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   └── utils/
+│   ├── App.tsx
 │   └── package.json
-├── backend/                 # Firebase Backend
-│   ├── functions/
-│   │   ├── src/
-│   │   │   ├── services/    # Business logic
-│   │   │   ├── routes/      # API endpoints
-│   │   │   ├── middleware/  # Express middleware
-│   │   │   └── index.ts
-│   │   └── package.json
-│   ├── firestore.rules      # Security rules
-│   └── firebase.json
-├── SETUP.md                 # Detailed setup guide
+│
+├── backend/                     # Express.js API server
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── middleware/
+│   │   ├── services/
+│   │   ├── ai/
+│   │   ├── integrations/
+│   │   └── config/
+│   ├── server.ts
+│   └── package.json
+│
+├── database/                    # Database schemas
+│   ├── migrations/
+│   └── seeds/
+│
+├── docker-compose.yml
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── deploy.yml
 └── README.md
 ```
 
-## 🚀 Features Overview
+## 🛠️ Tech Stack
 
-### 1. Authentication
-- Google Sign-In integration
-- Email/Password authentication
-- Profile setup wizard
-- Secure token management
+### Frontend
+- **React Native** with TypeScript
+- **Redux Toolkit** for state management
+- **React Navigation** for routing
+- **Axios** for API calls
+- **React Native Maps** for GPS tracking
+- **Reanimated 2** for smooth animations
+- **MobX** for reactive state
 
-### 2. Dashboard
-- Animated progress rings
-- Daily stats (steps, calories, distance)
-- Quick action buttons
-- Today's summary
+### Backend
+- **Node.js** with Express.js
+- **TypeScript** for type safety
+- **PostgreSQL** with Sequelize ORM
+- **GraphQL** for flexible API queries
+- **JWT** for authentication
+- **Firebase Cloud Messaging** for notifications
 
-### 3. Fitness Tracking
-- Step counter
-- Workout logger
-- Sleep tracker
-- Water intake monitor
-- BMI calculator
-- Heart rate tracking
+### Infrastructure
+- **Docker** for containerization
+- **Docker Compose** for multi-container setup
+- **PostgreSQL** database
+- **Redis** for caching
+- **GitHub Actions** for CI/CD
 
-### 4. AI Coach
-- Chat interface with AI
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 16+
+- Docker & Docker Compose
+- React Native CLI
+- Xcode (for iOS)
+- Android Studio (for Android)
+
+### Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/jangidgovind109-design/ai-fitness-app.git
+cd ai-fitness-app
+```
+
+2. **Backend Setup**
+```bash
+cd backend
+npm install
+cp .env.example .env
+npm run db:migrate
+npm run start:dev
+```
+
+3. **Frontend Setup**
+```bash
+cd frontend
+npm install
+npm run start
+```
+
+4. **Docker Setup**
+```bash
+docker-compose up -d
+```
+
+## 📱 Screens
+
+- **Splash Screen** - App initialization and brand display
+- **Onboarding** - User goals and profile setup
+- **Login/Signup** - Multi-provider authentication
+- **Dashboard** - Daily activity overview
+- **Activity Tracker** - Real-time tracking interface
+- **Workout Details** - Detailed activity analytics
+- **Analytics Page** - Weekly/monthly reports and trends
+- **Social/Community** - Friend activities and challenges
+- **Profile/Settings** - User preferences and account management
+
+## 🔑 Key Features Implementation
+
+### Authentication System
+```typescript
+// JWT-based authentication with refresh tokens
+// Google & Apple Sign-In integration
+// Session management
+// Profile setup with health metrics
+```
+
+### Dashboard
+- Real-time activity summary
+- Circular progress rings for goals
+- Daily step count with visualization
+- Calories burned vs. consumed
+- Active minutes tracker
+- Health cards layout
+
+### AI Integration
+- ML-based calorie prediction
 - Personalized workout plans
-- Diet recommendations
-- Daily motivation
-- Weekly fitness reports
 - Smart goal suggestions
+- Anomaly detection for health alerts
 
-### 5. Analytics
-- Weekly charts
-- Monthly statistics
-- Goal progress tracking
-- Personal records
-- Trend analysis
+### Health Integrations
+- Apple HealthKit for iOS
+- Google Fit API for Android
+- Real-time data synchronization
+- Background data fetching
 
-### 6. Profile Management
-- User settings
-- Theme toggle (light/dark)
-- Notification settings
-- Data sync options
-- Privacy settings
+### Social Features
+- Friend request system
+- Activity sharing
+- Challenges with leaderboards
+- Achievement system
+- Community feed
 
-## 📊 Key Technologies
+## 📊 Database Schema
 
-| Technology | Purpose |
-|-----------|---------|
-| React Native | Cross-platform mobile |
-| Expo | Development platform |
-| Redux | State management |
-| Firebase | Backend services |
-| Firestore | Real-time database |
-| OpenAI API | AI coaching |
-| Google Fit API | Health data sync |
-| Reanimated | Smooth animations |
-| Victory | Charts & graphs |
+**Key Tables:**
+- `users` - User profiles and authentication
+- `activities` - Workout and activity logs
+- `daily_stats` - Aggregated daily statistics
+- `goals` - User fitness goals
+- `social_connections` - Friend relationships
+- `achievements` - User badges and milestones
+- `challenges` - Community challenges
+- `health_integrations` - Connected health apps
 
 ## 🔐 Security
 
-- Firebase Authentication for secure user management
-- Firestore Security Rules for data access control
-- Environment variables for sensitive data
-- HTTPS for all API calls
-- OAuth 2.0 for Google Sign-In
-- Data encryption in transit
+- JWT token-based authentication
+- Password hashing with bcrypt
+- HTTPS/SSL encryption
+- Rate limiting on API endpoints
+- SQL injection prevention with ORM
 - CORS configuration
+- Input validation and sanitization
 
-## 📚 Documentation
+## 📈 Analytics & Reporting
 
-- [Detailed Setup Guide](./SETUP.md) - Complete installation instructions
-- [API Documentation](./backend/README.md) - Backend API reference
-- [Component Guide](./frontend/COMPONENTS.md) - Component documentation
-- [Architecture Guide](./ARCHITECTURE.md) - System architecture
+- Weekly/monthly activity reports
+- BMI and health metrics tracking
+- Progress trends visualization
+- Habit analytics and insights
+- PDF export functionality
+- Goal achievement tracking
 
-## 🧪 Testing
+## 🎮 Gamification
 
+- **XP System** - Points for activities
+- **Streaks** - Daily activity tracking
+- **Achievements** - Unlock badges
+- **Levels** - Fitness progression levels
+- **Leaderboards** - Compete with friends
+
+## 🌙 UI/UX
+
+- Material Design 3 compliance
+- Dark/Light mode support
+- Smooth animations with Reanimated
+- Responsive layouts for all devices
+- Accessibility support (WCAG 2.1)
+- Circular progress indicators
+- Minimalist Google Fit aesthetic
+
+## 🚀 Deployment
+
+### Docker Deployment
 ```bash
-# Run all tests
-npm test
-
-# Run with coverage
-npm run test:coverage
-
-# Watch mode
-npm test -- --watch
+docker-compose up -d
 ```
 
-## 🚢 Deployment
+### Cloud Deployment
+- **Frontend:** Firebase Hosting / Vercel
+- **Backend:** AWS EC2 / Heroku / DigitalOcean
+- **Database:** AWS RDS / Managed PostgreSQL
 
-### Frontend (Expo)
-```bash
-cd frontend
-eas build --platform ios
-eas build --platform android
-```
+### CI/CD Pipeline
+- GitHub Actions for automated testing
+- Automated deployment on push
+- Pre-release testing environment
 
-### Backend (Firebase)
-```bash
-firebase deploy
-```
+## 📚 API Documentation
+
+See [API_DOCS.md](./docs/API_DOCS.md) for detailed API endpoints and schemas.
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📝 License
 
-MIT License - see LICENSE file for details
+This project is licensed under the MIT License - see [LICENSE](./LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Govind Jangid**
+- GitHub: [@jangidgovind109-design](https://github.com/jangidgovind109-design)
+
+## 🙏 Acknowledgments
+
+- Inspired by Google Fit
+- Material Design 3 guidelines
+- React Native community
+- Open source contributors
 
 ## 📞 Support
 
-- 📧 Email: support@ai-fitness-app.com
-- 🐛 Issues: [GitHub Issues](https://github.com/jangidgovind109-design/ai-fitness-app/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/jangidgovind109-design/ai-fitness-app/discussions)
-
-## 🗓️ Roadmap
-
-- [ ] Wearable device integration (Apple Watch, Wear OS)
-- [ ] Push notifications
-- [ ] Social features (friends, challenges)
-- [ ] Video tutorials
-- [ ] Meal planning
-- [ ] Advanced health metrics
-- [ ] More AI features
+For support, email support@ai-fitness-app.com or open an issue on GitHub.
 
 ---
 
-**Made with ❤️ by the AI Fitness App Team**
+**Status:** 🚧 Under Active Development
 
-[Documentation](./SETUP.md) • [Issues](https://github.com/jangidgovind109-design/ai-fitness-app/issues) • [Discussions](https://github.com/jangidgovind109-design/ai-fitness-app/discussions)
+**Last Updated:** May 2026
